@@ -34,17 +34,17 @@ class _HomePageState extends State<HomePage> {
             child: Container(
               height: height / 3,
               width: double.infinity,
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: gradient,
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                ),
-              ),
+              // decoration: const BoxDecoration(
+              //   gradient: LinearGradient(
+              //     colors: gradient,
+              //     begin: Alignment.bottomCenter,
+              //     end: Alignment.topCenter,
+              //   ),
+              // ),
               child: ListView(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 100.0),
+                    padding: const EdgeInsets.only(left: 100.0, top: 20),
                     child: RichText(
                       text: const TextSpan(children: [
                         TextSpan(
@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                       ]),
                     ),
                   ),
-                  const SpaceVH(height: 50.0),
+                  const SpaceVH(height: 20.0),
                   Mainbutton(
                     onTap: () {
                       Navigator.push(
@@ -65,7 +65,6 @@ class _HomePageState extends State<HomePage> {
                     btnColor: darkBlueButton,
                     text: 'Register Today',
                   ),
-                  const SpaceVH(height: 50.0),
                 ],
               ),
             ),
