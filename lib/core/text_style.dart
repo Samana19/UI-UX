@@ -6,6 +6,11 @@ const TextStyle headline = TextStyle(
   color: grayText,
   fontWeight: FontWeight.normal,
 );
+const TextStyle headlinebold = TextStyle(
+  fontSize: 36,
+  color: darkBlueText,
+  fontWeight: FontWeight.bold,
+);
 
 const TextStyle headline1 = TextStyle(
   fontSize: 18,

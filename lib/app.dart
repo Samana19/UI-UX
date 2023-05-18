@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:the_daily_digest/views/login_page.dart';
+import 'package:the_daily_digest/views/signup_page.dart';
 import 'package:the_daily_digest/views/splash_screen.dart';
 
 
@@ -19,6 +20,8 @@ class _MyAppState extends State<MyApp> {
         routes: {
           '/': (context) => const HomePage(),
           '/login': (context) => const LoginPage(),
+          '/signup': (context) => const SignUpPage(),
+          
         });
   }
 }

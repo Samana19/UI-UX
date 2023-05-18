@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:the_daily_digest/core/text_style.dart';
-import 'package:flutter/cupertino.dart';
 import '../core/colors.dart';
 import '../core/space.dart';
 import '../widget/main_button.dart';
 import '../widget/text_field.dart';
+import 'signup_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,24 +14,34 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  //controller for the text field
+  TextEditingController userName = TextEditingController();
+  TextEditingController userPass = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: whiteBackground,
+      backgroundColor: white,
       body: Padding(
         padding: const EdgeInsets.only(top: 50.0),
         child: SingleChildScrollView(
           child: Column(
             children: [
               const SpaceVH(height: 50.0),
-              const Text(
-                'Welcome Back!',
-                style: headline1,
+              const Padding(
+                padding: EdgeInsets.only(right: 150.0),
+                child: Text(
+                  'Hello Again!',
+                  style: headlinebold,
+                ),
               ),
               const SpaceVH(height: 10.0),
-              const Text(
-                'Please sign in to your account',
-                style: headline3,
+              const Padding(
+                padding: EdgeInsets.only(right: 150.0),
+                child: Text(
+                  'Please sign in to your account',
+                  style: headline3,
+                ),
               ),
               const SpaceVH(height: 60.0),
               textField(
@@ -67,15 +77,15 @@ class _LoginPageState extends State<LoginPage> {
                     Mainbutton(
                       onTap: () {},
                       text: 'Sign in',
-                      btnColor: blueButton,
+                      btnColor: darkBlueButton,
                     ),
                     const SpaceVH(height: 20.0),
                     Mainbutton(
                       onTap: () {},
                       text: 'Sign in with google',
-                      image: 'google.png',
-                      btnColor: white,
-                      txtColor: blackBG,
+                      image: 'assets/images/google.png',
+                      btnColor: whiteBackground,
+                      txtColor: darkBlueText,
                     ),
                     const SpaceVH(height: 20.0),
                     TextButton(
@@ -83,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (builder) => SignUpPage()));
+                                builder: (builder) => const SignUpPage()));
                       },
                       child: RichText(
                         text: TextSpan(children: [
