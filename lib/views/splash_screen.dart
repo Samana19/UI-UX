@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SpaceVH(height: 20.0),
                   Mainbutton(
-                    onTap: () {
+                    onPressed: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(

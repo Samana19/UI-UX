@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:the_daily_digest/core/text_style.dart';
+import 'package:the_daily_digest/views/dashboard_page.dart';
 import '../core/colors.dart';
 import '../core/space.dart';
 import '../widget/main_button.dart';
@@ -17,6 +18,7 @@ class _LoginPageState extends State<LoginPage> {
   //controller for the text field
   TextEditingController userName = TextEditingController();
   TextEditingController userPass = TextEditingController();
+  bool rememberMe = false;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               const SpaceVH(height: 50.0),
               const Padding(
-                padding: EdgeInsets.only(right: 150.0),
+                padding: EdgeInsets.only(right: 140.0),
                 child: Text(
                   'Hello Again!',
                   style: headlinebold,
@@ -43,10 +45,9 @@ class _LoginPageState extends State<LoginPage> {
                   style: headline3,
                 ),
               ),
-              const SpaceVH(height: 60.0),
+              const SpaceVH(height: 50.0),
               textField(
                 controller: userName,
-                image: 'user.svg',
                 hintTxt: 'Username',
               ),
               textField(
@@ -55,38 +56,112 @@ class _LoginPageState extends State<LoginPage> {
                 isObs: true,
                 hintTxt: 'Password',
               ),
-              const SpaceVH(height: 10.0),
               Align(
-                alignment: Alignment.centerRight,
+                alignment: Alignment.centerLeft,
                 child: Padding(
-                  padding: const EdgeInsets.only(right: 20.0),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Forgot Password?',
-                      style: headline3,
-                    ),
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Row(
+                    children: [
+                      Checkbox(
+                        value: rememberMe,
+                        onChanged: (value) {
+                          setState(() {
+                            rememberMe = value!;
+                          });
+                        },
+                        activeColor: darkBlueButton,
+                      ),
+
+                      const Text(
+                        'Remember Me',
+                        style: headline3,
+                      ),
+                      //here
+
+                      Padding(
+                        padding: const EdgeInsets.only(left: 80.0),
+                        child: TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            'Forgot Password?',
+                            style: headline3,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
-              const SpaceVH(height: 100.0),
+              // Align(
+              //   alignment: Alignment.centerRight,
+              //   child: Padding(
+              //     padding: const EdgeInsets.only(right: 20.0),
+              //     child: TextButton(
+              //       onPressed: () {},
+              //       child: const Text(
+              //         'Forgot Password?',
+              //         style: headline3,
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              const SpaceVH(height: 50.0),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Column(
                   children: [
                     Mainbutton(
-                      onTap: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (builder) => const DashboardPage()));
+                      },
                       text: 'Sign in',
                       btnColor: darkBlueButton,
                     ),
-                    const SpaceVH(height: 20.0),
+
+                    //divider
+                    SizedBox(
+                      height: 50,
+                      width: 320, // Specify the desired height here
+                      child: Row(
+                        children: const [
+                          Expanded(
+                            child: Divider(
+                              thickness: 1.0,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Text(
+                              'or',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Divider(
+                              thickness: 1.0,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
                     Mainbutton(
-                      onTap: () {},
-                      text: 'Sign in with google',
-                      image: 'assets/images/google.png',
+                      onPressed: () {},
+                      text: 'Sign in with Google',
+                      imagePath: 'assets/images/',
+                      image: 'google.png',
                       btnColor: whiteBackground,
                       txtColor: darkBlueText,
                     ),
+
                     const SpaceVH(height: 20.0),
                     TextButton(
                       onPressed: () {
@@ -105,7 +180,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           TextSpan(
                             text: ' Sign Up',
-                            style: headline1.copyWith(
+                            style: headline3.copyWith(
                               fontSize: 14.0,
                             ),
                           ),

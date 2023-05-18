@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import '../core/colors.dart';
-import '../core/space.dart';
 import '../core/text_style.dart';
 
 class Mainbutton extends StatelessWidget {
-  final Function() onTap;
+  final Function() onPressed;
   final String text;
+  final String? imagePath;
   final String? image;
   final Color? txtColor;
   final Color btnColor;
+
   const Mainbutton({
     Key? key,
-    required this.onTap,
+    required this.onPressed,
+    this.imagePath,
     required this.text,
     this.image,
     this.txtColor,
@@ -21,7 +22,7 @@ class Mainbutton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: onPressed,
       child: Container(
         height: 60.0,
         margin: const EdgeInsets.symmetric(horizontal: 30.0),
@@ -32,12 +33,17 @@ class Mainbutton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            if (image != null)
+              Image.asset(
+                '$imagePath$image',
+                height: 24.0,
+                width: 24.0,
+              ),
+            const SizedBox(width: 8.0),
             Text(
               text,
-              style: txtColor != null
-                  ? headline1.copyWith(color: txtColor)
-                  : headline1,
-            )
+              style: txtColor != null ? headline1.copyWith(color: txtColor) : headline1,
+            ),
           ],
         ),
       ),
