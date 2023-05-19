@@ -42,7 +42,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                     });
                   },
                   child: Image.asset(
-                    bottomMenu[i].imagePath,
+                    '${bottomMenu[i].imagePath}',
                     color: selectIndex == i
                         ? darkBlueText
                         : grayText.withOpacity(0.5),
@@ -57,7 +57,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 }
 
 List<Widget> child = [
-  const HomePage(),
+  const DashboardPage(),
   Container(color: white),
   Container(color: white),
   Container(color: white),
