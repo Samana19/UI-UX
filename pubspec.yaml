@@ -81,6 +81,21 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+  - family: Open Sans
+    fonts:
+      - asset: assets/fonts/open sans/OpenSans-Italic.ttf
+      - asset: assets/fonts/open sans/OpenSans-Medium.ttf
+      - asset: assets/fonts/open sans/OpenSans-Regular.ttf
+        weight: 500
+  - family: Montserrat
+    fonts:
+    - asset: assets/fonts/montserrat/Montserrat-Italic.ttf
+    - asset: assets/fonts/montserrat/Montserrat-Medium.ttf
+    - asset: assets/fonts/montserrat/Montserrat-Regular.ttf
+      weight: 700
+
+
   # fonts:
   #   - family: Schyler
   #     fonts:
