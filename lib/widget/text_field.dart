@@ -39,7 +39,7 @@ Widget textField({
               hintText: hintTxt,
               hintStyle: hintStyle,
             ),
-            style: headline1,
+            style: CustomTextStyles.headline1,
           ),
         ),
         ColorFiltered(
