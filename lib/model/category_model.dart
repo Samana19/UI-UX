@@ -12,6 +12,6 @@ List<Category> categories = [
   Category(2, 'Politics'),
   Category(3, 'Sports'),
   Category(4, 'Technology'),
-  Category(5, 'Business'),
-  Category(6, 'Entertainment'),
+  // Category(5, 'Business'),
+  // Category(6, 'Entertainment'),
 ];
