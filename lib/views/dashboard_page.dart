@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_daily_digest/widget/sidebar.dart';
 import '../theme/colors.dart';
 import '../model/category_model.dart';
 
@@ -12,6 +13,7 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
+    final screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: whiteBackground,
       appBar: AppBar(
@@ -24,6 +26,27 @@ class _DashboardPageState extends State<DashboardPage> {
           child: Image.asset(
             'assets/icons/paragraph.png',
           ),
+        ),
+      ),
+      drawer: SizedBox(
+        width: screenheight * 0.5,
+        child: Drawer(
+          child: SizedBox(
+              height: 100,
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: const [
+                  DrawerHeader(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/logo.png'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    child: Text(''),
+                  ),
+                ],
+              )),
         ),
       ),
       body: SingleChildScrollView(
@@ -157,4 +180,57 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 
   int selectId = 0;
+
+//   SizedBox sideBarDrawer(BuildContext context, double screenHeight) {
+//     return SizedBox(
+//       width: MediaQuery.of(context).size.width * 0.6,
+//       child: Drawer(
+//         child: SizedBox(
+//           height: screenHeight,
+//           child: ListView(
+//             padding: EdgeInsets.zero,
+//             children: [
+//               const DrawerHeader(
+//                 decoration: BoxDecoration(
+//                   image: DecorationImage(
+//                     image: AssetImage('assets/ima/logo.png'),
+//                     fit: BoxFit.cover,
+//                   ),
+//                 ),
+//                 child: Text(''),
+//               ),
+//               ListTile(
+//                 title: const Text('Home'),
+//                 onTap: () {
+//                   // updateCategory('Home');
+//                   Navigator.pop(context);
+//                 },
+//               ),
+//               ListTile(
+//                 title: const Text('Now Showing'),
+//                 onTap: () {
+//                   // updateCategory('Now Showing');
+//                   Navigator.pop(context);
+//                 },
+//               ),
+//               ListTile(
+//                 title: const Text('Popular Movies'),
+//                 onTap: () {
+//                   // updateCategory('Popular Movies');
+//                   Navigator.pop(context);
+//                 },
+//               ),
+//               ListTile(
+//                 title: const Text('Coming Soon'),
+//                 onTap: () {
+//                   // updateCategory('Coming Soon');
+//                   Navigator.pop(context);
+//                 },
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
 }

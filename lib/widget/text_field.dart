@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:the_daily_digest/core/colors.dart';
-import 'package:the_daily_digest/core/text_style.dart';
+import 'package:the_daily_digest/theme/colors.dart';
+import 'package:the_daily_digest/theme/text_style.dart';
 
 Widget textField({
   required String hintTxt,
@@ -37,7 +37,7 @@ Widget textField({
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: hintTxt,
-              hintStyle: hintStyle,
+              hintStyle: CustomTextStyles.hintStyle,
             ),
             style: CustomTextStyles.headline1,
           ),

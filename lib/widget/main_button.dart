@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../core/text_style.dart';
+import '../theme/text_style.dart';
 
 class Mainbutton extends StatelessWidget {
   final Function() onPressed;

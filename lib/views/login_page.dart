@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:the_daily_digest/core/text_style.dart';
-import 'package:the_daily_digest/views/dashboard_page.dart';
+import 'package:the_daily_digest/theme/text_style.dart';
 import 'package:the_daily_digest/widget/bottom_nav.dart';
-import '../core/colors.dart';
-import '../core/space.dart';
+import '../theme/colors.dart';
+import '../theme/space.dart';
 import '../widget/main_button.dart';
 import '../widget/text_field.dart';
 import 'signup_page.dart';
