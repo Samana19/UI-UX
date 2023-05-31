@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../core/colors.dart';
+import '../theme/colors.dart';
 import '../model/bottom_menu.dart';
 import '../views/dashboard_page.dart';
 

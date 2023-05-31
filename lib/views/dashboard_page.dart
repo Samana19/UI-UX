@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../core/colors.dart';
+import '../theme/colors.dart';
 import '../model/category_model.dart';
 
 class DashboardPage extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../core/colors.dart';
-import '../core/space.dart';
-import '../core/text_style.dart';
+import '../theme/colors.dart';
+import '../theme/space.dart';
+import '../theme/text_style.dart';
 import '../widget/main_button.dart';
 import '../widget/text_field.dart';
 
