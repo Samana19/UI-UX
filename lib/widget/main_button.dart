@@ -42,7 +42,9 @@ class Mainbutton extends StatelessWidget {
             const SizedBox(width: 8.0),
             Text(
               text,
-              style: txtColor != null ? headline1.copyWith(color: txtColor) : headline1,
+              style: txtColor != null
+                  ? CustomTextStyles.headline1.copyWith(color: txtColor)
+                  : CustomTextStyles.headline1,
             ),
           ],
         ),

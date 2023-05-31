@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                         text: const TextSpan(children: [
                           TextSpan(
                             text: 'Stay informed, Stay ahead',
-                            style: headline,
+                            style: CustomTextStyles.headline,
                           ),
                         ]),
                       ),

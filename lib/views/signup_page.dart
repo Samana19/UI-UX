@@ -31,7 +31,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 padding: EdgeInsets.only(right: 100.0),
                 child: Text(
                   'Come Join Us!',
-                  style: headlinebold,
+                  style: CustomTextStyles.headlinebold,
                 ),
               ),
               const SpaceVH(height: 10.0),
@@ -39,7 +39,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 padding: EdgeInsets.only(right: 70.0),
                 child: Text(
                   'Join us to stay updated with the latest news',
-                  style: headline3,
+                  style: CustomTextStyles.headline3,
                 ),
               ),
               const SpaceVH(height: 40.0),
@@ -114,13 +114,13 @@ class _SignUpPageState extends State<SignUpPage> {
                   text: TextSpan(children: [
                     TextSpan(
                       text: 'Have an account? ',
-                      style: headline.copyWith(
+                      style: CustomTextStyles.headline.copyWith(
                         fontSize: 14.0,
                       ),
                     ),
                     TextSpan(
                       text: ' Sign In',
-                      style: headline3.copyWith(
+                      style: CustomTextStyles.headline3.copyWith(
                         fontSize: 14.0,
                       ),
                     ),

@@ -31,14 +31,14 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
               const SpaceVH(height: 80.0),
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0),
-                child: Column(children: const [
+              const Padding(
+                padding: EdgeInsets.only(left: 20.0),
+                child: Column(children: [
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
                       'Hello Again!',
-                      style: headlinebold,
+                      style: CustomTextStyles.headlinebold,
                     ),
                   ),
                   SpaceVH(height: 10.0),
@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                     alignment: Alignment.topLeft,
                     child: Text(
                       'Please sign in to your account',
-                      style: headline3,
+                      style: CustomTextStyles.headline3,
                     ),
                   ),
                 ]),
@@ -81,18 +81,18 @@ class _LoginPageState extends State<LoginPage> {
 
                         const Text(
                           'Remember Me',
-                          style: headline3,
+                          style: CustomTextStyles.headline3,
                         ),
                         //here
                       ],
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   TextButton(
                     onPressed: () {},
                     child: const Text(
                       'Forgot Password?',
-                      style: headline3,
+                      style: CustomTextStyles.headline3,
                     ),
                   ),
                 ]),
@@ -114,11 +114,11 @@ class _LoginPageState extends State<LoginPage> {
                     ),
 
                     //divider
-                    SizedBox(
+                    const SizedBox(
                       height: 50,
                       width: 320, // Specify the desired height here
                       child: Row(
-                        children: const [
+                        children: [
                           Expanded(
                             child: Divider(
                               thickness: 1.0,
@@ -166,13 +166,13 @@ class _LoginPageState extends State<LoginPage> {
                         text: TextSpan(children: [
                           TextSpan(
                             text: 'Don\' have an account? ',
-                            style: headline.copyWith(
+                            style: CustomTextStyles.headline.copyWith(
                               fontSize: 14.0,
                             ),
                           ),
                           TextSpan(
                             text: ' Sign Up',
-                            style: headline3.copyWith(
+                            style: CustomTextStyles.headline3.copyWith(
                               fontSize: 14.0,
                             ),
                           ),
