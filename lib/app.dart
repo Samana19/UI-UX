@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:the_daily_digest/views/login_page.dart';
-import 'package:the_daily_digest/views/signup_page.dart';
-import 'package:the_daily_digest/views/splash_screen.dart';
-import './widget/bottom_nav.dart';
+import 'package:the_daily_digest/features/auth/presentation/view/login_page.dart';
+import 'package:the_daily_digest/features/auth/presentation/view/signup_page.dart';
+import 'package:the_daily_digest/features/splash/presentation/view/splash_screen.dart';
+import 'core/common/widget/bottom_nav.dart';
 import 'views/dashboard_page.dart';
 
 class MyApp extends StatefulWidget {
