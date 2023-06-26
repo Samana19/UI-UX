@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:the_daily_digest/widget/sidebar.dart';
-import '../theme/colors.dart';
+import 'package:the_daily_digest/core/common/widget/sidebar.dart';
+import '../core/common/color/colors.dart';
 import '../model/category_model.dart';
 
 class DashboardPage extends StatefulWidget {

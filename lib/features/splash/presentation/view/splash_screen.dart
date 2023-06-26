@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../theme/colors.dart';
-import '../theme/space.dart';
-import '../theme/text_style.dart';
-import '../widget/main_button.dart';
-import '../app.dart';
-import 'login_page.dart';
+import '../../../../core/common/color/colors.dart';
+import '../../../../core/common/spacing/space.dart';
+import '../../../../core/common/text style/text_style.dart';
+import '../../../../core/common/widget/main_button.dart';
+import '../../../../app.dart';
+import '../../../auth/presentation/view/login_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
