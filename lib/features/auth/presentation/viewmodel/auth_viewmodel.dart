@@ -31,19 +31,41 @@ class AuthViewModel extends StateNotifier<AuthState> {
     );
   }
 
-  Future<void> registerUser(UserEntity user) async {
+  Future<void> registerUser(BuildContext context, UserEntity user) async {
     state = state.copyWith(isLoading: true);
     var data = await _authUseCase.registerUser(user);
-    data.fold(
-      (failure) => state = state.copyWith(
-        isLoading: false,
-        error: failure.error,
-      ),
-      (success) => state = state.copyWith(
+    data.fold((failure) {
+      state = state.copyWith(isLoading: false, error: failure.error);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Please enter valid information',
+            style: TextStyle(
+              fontSize: 18,
+              fontFamily: 'Brand Bold',
+              color: Colors.red,
+            ),
+          ),
+        ),
+      );
+    }, (success) {
+      state = state.copyWith(
         isLoading: false,
         error: null,
-      ),
-    );
+      );
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Successfully registered',
+            style: TextStyle(
+              fontSize: 18,
+              fontFamily: 'Brand Bold',
+              color: Colors.white,
+            ),
+          ),
+        ),
+      );
+    });
   }
 
   Future<void> loginUser(
