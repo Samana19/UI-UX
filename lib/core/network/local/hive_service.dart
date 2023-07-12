@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:the_daily_digest/features/dashboard/data/model/news_hive_model.dart';
 
 import '../../../config/constants/hive_table_constant.dart';
 import '../../../features/auth/data/model/user_hive_model.dart';
@@ -38,5 +39,15 @@ class HiveService {
         element.username == username && element.password == password);
     box.close();
     return user;
+  }
+
+  Future<List<NewsHiveModel>> getAllNews() async {
+    var directory = await getApplicationDocumentsDirectory();
+    Hive.init(directory.path);
+
+    var box = await Hive.openBox<NewsHiveModel>(HiveTableConstant.newsBox);
+    var news = box.values.toList();
+    box.close();
+    return news;
   }
 }

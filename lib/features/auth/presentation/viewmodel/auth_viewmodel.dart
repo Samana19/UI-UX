@@ -90,7 +90,7 @@ class AuthViewModel extends StateNotifier<AuthState> {
       },
       (success) {
         state = state.copyWith(isLoading: false, error: null);
-        Navigator.pushNamed(context, '/home');
+        Navigator.pushNamed(context, '/bottomnav');
       },
     );
   }

@@ -12,4 +12,7 @@ class ApiEndpoints {
   static const String register = "/auth/register";
   static const String uploadImage = "/auth/uploadImage";
   static const String logout = "/auth/logout";
+
+  // ====================== News Routes ======================
+  static const String getAllNews = "/api/news/";
 }
