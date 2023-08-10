@@ -50,4 +50,8 @@ class HiveService {
     box.close();
     return news;
   }
+
+  //============comment queries================
+
+  
 }

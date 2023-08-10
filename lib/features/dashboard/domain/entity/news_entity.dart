@@ -1,51 +1,76 @@
 import 'package:equatable/equatable.dart';
+import 'package:the_daily_digest/features/comment/domain/entity/comment_entity.dart';
 
 class NewsEntity extends Equatable {
-  final String? newsId;
+  final String? newsid;
   final String newsPoster;
   final String newsName;
   final String newsDescription;
+  List<CommentEntity> comments;
+  final String category;
+  final String userid;
+  final DateTime createdAt;
 
-  const NewsEntity({
-    this.newsId,
+  NewsEntity({
+    this.newsid,
     required this.newsPoster,
     required this.newsName,
     required this.newsDescription,
+    required this.comments,
+    required this.category,
+    required this.userid,
+    required this.createdAt,
   });
 
   factory NewsEntity.fromJson(Map<String, dynamic> json) => NewsEntity(
-        newsId: json["_id"],
+        newsid: json["_id"],
         newsPoster: json["newsPoster"],
         newsName: json["newsName"],
         newsDescription: json["newsDescription"],
+        comments: json["comments"],
+        category: json["category"],
+        userid: json["userid"],
+        createdAt: json["createdAt"],
       );
 
   Map<String, dynamic> toJson() => {
-        "newsId": newsId,
+        "newsid": newsid,
         "newsPoster": newsPoster,
         "newsName": newsName,
         "newsDescription": newsDescription,
+        "comments": comments,
+        "category": category,
+        "userid": userid,
+        "createdAt": createdAt,
       };
 
   factory NewsEntity.fromMap(Map<String, dynamic> map) {
     return NewsEntity(
-      newsId: map['newsId'] as String,
+      newsid: map['newsid'] as String,
       newsPoster: map['newsPoster'] as String,
       newsName: map['newsName'] as String,
       newsDescription: map['newsDescription'] as String,
+      comments: map['comments'] as List<CommentEntity>,
+      category: map['category'] as String,
+      userid: map['userid'] as String,
+      createdAt: map['createdAt'] as DateTime,
     );
   }
 
   @override
   String toString() {
-    return 'NewsEntity(newsId: $newsId, newsPoster: $newsPoster, newsName: $newsName, newsDescription: $newsDescription)';
+    return 'NewsEntity(newsid: $newsid, newsPoster: $newsPoster, newsName: $newsName, newsDescription: $newsDescription, comments: $comments, category: $category, userid: $userid, createdAt: $createdAt)';
   }
 
   @override
   List<Object?> get props => [
-        newsId,
+        newsid,
         newsPoster,
         newsName,
         newsDescription,
+        comments,
+        category,
+        userid,
+        createdAt,
       ];
 }
