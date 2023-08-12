@@ -114,13 +114,13 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       ),
                     ),
                     const Spacer(),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Forgot Password?',
-                        style: CustomTextStyles.headline3,
-                      ),
-                    ),
+                    // TextButton(
+                    //   onPressed: () {},
+                    //   child: const Text(
+                    //     'Forgot Password?',
+                    //     style: CustomTextStyles.headline3,
+                    //   ),
+                    // ),
                   ]),
                 ),
                 const SpaceVH(height: 50.0),
@@ -145,45 +145,45 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       ),
 
                       //divider
-                      const SizedBox(
-                        height: 50,
-                        width: 320, // Specify the desired height here
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Divider(
-                                thickness: 1.0,
-                                color: Colors.grey,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 8.0),
-                              child: Text(
-                                'or',
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Divider(
-                                thickness: 1.0,
-                                color: Colors.grey,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                      // const SizedBox(
+                      //   height: 50,
+                      //   width: 320, // Specify the desired height here
+                      //   child: Row(
+                      //     children: [
+                      //       Expanded(
+                      //         child: Divider(
+                      //           thickness: 1.0,
+                      //           color: Colors.grey,
+                      //         ),
+                      //       ),
+                      //       Padding(
+                      //         padding: EdgeInsets.symmetric(horizontal: 8.0),
+                      //         child: Text(
+                      //           'or',
+                      //           style: TextStyle(
+                      //             fontSize: 16.0,
+                      //             color: Colors.black,
+                      //           ),
+                      //         ),
+                      //       ),
+                      //       Expanded(
+                      //         child: Divider(
+                      //           thickness: 1.0,
+                      //           color: Colors.grey,
+                      //         ),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
 
-                      Mainbutton(
-                        onPressed: () {},
-                        text: 'Sign in with Google',
-                        imagePath: 'assets/images/',
-                        image: 'google.png',
-                        btnColor: whiteBackground,
-                        txtColor: darkBlueText,
-                      ),
+                      // Mainbutton(
+                      //   onPressed: () {},
+                      //   text: 'Sign in with Google',
+                      //   imagePath: 'assets/images/',
+                      //   image: 'google.png',
+                      //   btnColor: whiteBackground,
+                      //   txtColor: darkBlueText,
+                      // ),
 
                       const SpaceVH(height: 20.0),
                       TextButton(

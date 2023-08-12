@@ -120,44 +120,44 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                   text: 'Sign Up',
                   btnColor: darkBlueButton,
                 ),
-                const SizedBox(
-                  height: 50,
-                  width: 320, // Specify the desired height here
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Divider(
-                          thickness: 1.0,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Text(
-                          'or',
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Divider(
-                          thickness: 1.0,
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Mainbutton(
-                  onPressed: () {},
-                  text: 'Sign in with Google',
-                  imagePath: 'assets/images/',
-                  image: 'google.png',
-                  btnColor: whiteBackground,
-                  txtColor: darkBlueText,
-                ),
+                // const SizedBox(
+                //   height: 50,
+                //   width: 320, // Specify the desired height here
+                //   child: Row(
+                //     children: [
+                //       Expanded(
+                //         child: Divider(
+                //           thickness: 1.0,
+                //           color: Colors.grey,
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.symmetric(horizontal: 8.0),
+                //         child: Text(
+                //           'or',
+                //           style: TextStyle(
+                //             fontSize: 16.0,
+                //             color: Colors.black,
+                //           ),
+                //         ),
+                //       ),
+                //       Expanded(
+                //         child: Divider(
+                //           thickness: 1.0,
+                //           color: Colors.grey,
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Mainbutton(
+                //   onPressed: () {},
+                //   text: 'Sign in with Google',
+                //   imagePath: 'assets/images/',
+                //   image: 'google.png',
+                //   btnColor: whiteBackground,
+                //   txtColor: darkBlueText,
+                // ),
                 const SpaceVH(height: 20.0),
                 TextButton(
                   onPressed: () {
