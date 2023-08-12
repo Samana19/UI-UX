@@ -11,7 +11,8 @@ final commentRepositoryProvider = Provider<ICommentRepository>((ref) {
 
 abstract class ICommentRepository {
   Future<Either<Failure, List<CommentEntity>>> getAllComments({required String token});
-  // Future<Either<Failure, CommentEntity>> postComment({required String newsid, required String content,required String token});
+  Future<Either<Failure, CommentEntity>> postComment({required String newsid, required String content,required String token, required String userid});
+  Future<Either<Failure, CommentEntity>> updateComment({required String commentid, required String content,required String token});
   // Future<Either<Failure, Unit>> deleteComment({required String commentid,required String token});
 }
 

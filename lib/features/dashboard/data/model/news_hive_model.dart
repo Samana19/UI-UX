@@ -23,13 +23,12 @@ class NewsHiveModel {
   final String newsName;
   @HiveField(3)
   final String newsDescription;
+
   @HiveField(4)
-  List<CommentEntity> comments = [];
-  @HiveField(5)
   final String category;
-  @HiveField(6)
+  @HiveField(5)
   final String userid;
-  @HiveField(7)
+  @HiveField(6)
   final DateTime createdAt;
 
   //empty constructor
@@ -38,7 +37,6 @@ class NewsHiveModel {
         newsPoster = '',
         newsName = '',
         newsDescription = '',
-        comments = [],
         category = '',
         userid = '',
         createdAt = DateTime.now();
@@ -48,7 +46,6 @@ class NewsHiveModel {
     required this.newsPoster,
     required this.newsName,
     required this.newsDescription,
-    required this.comments,
     required this.category,
     required this.userid,
     required this.createdAt,
@@ -60,7 +57,6 @@ class NewsHiveModel {
         newsPoster: newsPoster,
         newsName: newsName,
         newsDescription: newsDescription,
-        comments: comments,
         category: category,
         userid: userid,
         createdAt: createdAt,
@@ -72,7 +68,6 @@ class NewsHiveModel {
         newsPoster: entity.newsPoster,
         newsName: entity.newsName,
         newsDescription: entity.newsDescription,
-        comments: entity.comments,
         category: entity.category,
         userid: entity.userid,
         createdAt: entity.createdAt,
@@ -89,7 +84,6 @@ class NewsHiveModel {
               newsPoster: apiModel.newsPoster,
               newsName: apiModel.newsName,
               newsDescription: apiModel.newsDescription,
-              comments: apiModel.comments,
               category: apiModel.category,
               userid: apiModel.userid,
               createdAt: apiModel.createdAt,
@@ -99,6 +93,6 @@ class NewsHiveModel {
 
   @override
   String toString() {
-    return 'NewsHiveModel(newsid: $newsid, newsPoster: $newsPoster, newsName: $newsName, newsDescription: $newsDescription, comments: $comments, category: $category, userid: $userid, createdAt: $createdAt)';
+    return 'NewsHiveModel(newsid: $newsid, newsPoster: $newsPoster, newsName: $newsName, newsDescription: $newsDescription,  category: $category, userid: $userid, createdAt: $createdAt)';
   }
 }

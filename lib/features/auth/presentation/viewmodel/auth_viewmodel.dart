@@ -94,4 +94,24 @@ class AuthViewModel extends StateNotifier<AuthState> {
       },
     );
   }
+
+  // Future<void> getUserInfo() async {
+  //   state = state.copyWith(isLoading: true);
+
+  //   var data = await _authUseCase.getUserInfo();
+
+  //   data.fold(
+  //     (left) => state = state.copyWith(isLoading: false, error: left.error),
+  //     (right) =>
+  //         state = state.copyWith(isLoading: false, user: right, error: null),
+  //   );
+  // }
+
+  Future<void> logoutUser(BuildContext context) async {
+    // final sharedPreferences = await SharedPreferences.getInstance();
+    // bool? token = await sharedPreferences.setBool("isLogout", true);
+
+    Navigator.pushNamedAndRemoveUntil(
+        context, '/login', (Route<dynamic> route) => false);
+  }
 }

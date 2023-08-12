@@ -32,6 +32,49 @@ class CommentRemoteRepoImpl implements ICommentRepository {
     }
   }
 
+  //post comment
+
+  @override
+  Future<Either<Failure, CommentEntity>> postComment({
+    required String newsid,
+    required String userid,
+    required String content,
+    required String token,
+  }) async {
+    if (await checkConnectivity()) {
+      return await commentRemoteDataSource.postComment(token:token, content: '', newsId: '', userid: '');
+    } else {
+      return Left(Failure(error: 'No internet connection - Failed to add comment'));
+    }
+  }
+
+  //update comment
+
+  Future<Either<Failure, CommentEntity>> updateComment({
+     String? commentid,
+    required String content,
+    required String token,
+  }) async {
+    if (await checkConnectivity()) {
+      return await commentRemoteDataSource.updateComment(content: '', commentId: '', token: '', updatedContent: '');
+    } else {
+      return Left(Failure(error: 'No internet connection - Failed to update comment'));
+    }
+  }
+
+  //delete comment
+
+  // Future<Either<Failure, CommentEntity>> deleteComment({
+  //   required String commentid,
+  //   required String token,
+  // }) async {
+  //   if (await checkConnectivity()) {
+  //     return await commentRemoteDataSource.deleteComment(commentid:commentid, token:token);
+  //   } else {
+  //     return Left(Failure(error: 'No internet connection - Failed to delete comment'));
+  //   }
+  // }
+
   // @override
   // Future<Either<Failure, CommentEntity>> postComment({
   //   required String newsid,

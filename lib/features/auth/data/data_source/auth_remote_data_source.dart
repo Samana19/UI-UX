@@ -103,4 +103,61 @@ class AuthRemoteDataSource {
       );
     }
   }
+
+  // Future<Either<Failure, UserEntity>> getUserInfo() async {
+  //   String? token;
+
+  //   await userSharedPrefs.getUserToken().then((value) {
+  //     value.fold((l) => null, (r) => token = r);
+  //   });
+
+  //   try {
+  //     Response response = await dio.get(
+  //       ApiEndpoints.getUserInfo,
+  //       options: Options(headers: {'Authorization': 'Bearer $token'}),
+  //     );
+  //     if (response.statusCode == 200) {
+  //       if (response.statusCode == 200) {
+  //         print(response);
+  //         final getUserInfoDTO = GetUserInfoDTO.fromJson(response.data);
+  //         print("remote data ${getUserInfoDTO.data}");
+  //         UserEntity user = userApiModel.toUserEntity(getUserInfoDTO.data);
+
+  //         // final box =
+  //         //     await Hive.openBox<UserHiveModel>(HiveTableConstant.userBox);
+  //         // box.clear();
+  //         // final hiveUser = userLocalDataSource.toHiveModel(user);
+  //         // box.put(hiveUser.id, hiveUser);
+  //         //var res = box.values.toString();
+
+  //         print('user: $user');
+
+  //         return Right(user);
+  //       } else {
+  //         return Left(
+  //           Failure(
+  //             error: response.statusMessage.toString(),
+  //             statusCode: response.statusCode.toString(),
+  //           ),
+  //         );
+  //       }
+  //     } else {
+  //       return Left(
+  //         Failure(
+  //           error: response.data["message"],
+  //           statusCode: response.statusCode.toString(),
+  //         ),
+  //       );
+  //     }
+  //   } on DioException catch (e) {
+  //     return Left(
+  //       Failure(
+  //         error: e.message.toString(),
+  //         statusCode: e.response?.statusCode.toString() ?? '0',
+  //       ),
+  //     );
+  //   }
+  // }
+
+
 }

@@ -21,17 +21,16 @@ class NewsHiveModelAdapter extends TypeAdapter<NewsHiveModel> {
       newsPoster: fields[1] as String,
       newsName: fields[2] as String,
       newsDescription: fields[3] as String,
-      comments: (fields[4] as List).cast<CommentEntity>(),
-      category: fields[5] as String,
-      userid: fields[6] as String,
-      createdAt: fields[7] as DateTime,
+      category: fields[4] as String,
+      userid: fields[5] as String,
+      createdAt: fields[6] as DateTime,
     );
   }
 
   @override
   void write(BinaryWriter writer, NewsHiveModel obj) {
     writer
-      ..writeByte(8)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.newsid)
       ..writeByte(1)
@@ -41,12 +40,10 @@ class NewsHiveModelAdapter extends TypeAdapter<NewsHiveModel> {
       ..writeByte(3)
       ..write(obj.newsDescription)
       ..writeByte(4)
-      ..write(obj.comments)
-      ..writeByte(5)
       ..write(obj.category)
-      ..writeByte(6)
+      ..writeByte(5)
       ..write(obj.userid)
-      ..writeByte(7)
+      ..writeByte(6)
       ..write(obj.createdAt);
   }
 

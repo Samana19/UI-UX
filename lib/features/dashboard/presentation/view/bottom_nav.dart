@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:the_daily_digest/features/dashboard/presentation/view/bottom_view/bookmark/bookmark_page.dart';
+import 'package:the_daily_digest/features/dashboard/presentation/view/bottom_view/profile/user_profile.dart';
 import '../../../../core/common/color/colors.dart';
 import '../../../../model/bottom_menu.dart';
 import 'bottom_view/dashboard/dashboard_page.dart';
+import 'bottom_view/bookmark/bookmark_page.dart';
+import 'bottom_view/profile/user_profile.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key? key}) : super(key: key);
@@ -58,9 +61,4 @@ class _BottomNavBarState extends State<BottomNavBar> {
   }
 }
 
-List<Widget> child = [
-  const DashboardPage(),
-  BookmarkPage(),
-  Container(color: white),
-  Container(color: white),
-];
+List<Widget> child = [const DashboardPage(), BookmarkPage(), UserProfile()];

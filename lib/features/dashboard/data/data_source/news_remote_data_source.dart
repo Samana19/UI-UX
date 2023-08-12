@@ -1,4 +1,3 @@
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -41,27 +40,12 @@ class NewsRemoteDataSource {
       // print("api res: ${response.data}");
 
       if (response.statusCode == 200) {
-        var list = response.data as List;
-        List<NewsApiModel> news = list
-            .map((item) => NewsApiModel.fromJson(item as Map<String, dynamic>))
+        var newsList = response.data as List;
+        print('list: $newsList');
+        List<NewsEntity> newsEntities = newsList
+            .map((item) => NewsApiModel.fromJson(item).toEntity())
             .toList();
-        final newsEntities = newsApiModel.toEntityList(news);
-
-        final newsHiveModels = newsHiveModel.fromApiModelList(news);
-
-        var directory = await getApplicationDocumentsDirectory();
-        Hive.init(directory.path);
-
-        final newsBox = await Hive.openBox<NewsHiveModel>('newsBox');
-
-        newsBox.clear();
-        newsBox.addAll(newsHiveModels);
-
-        print("hive ko lagi: $newsEntities");
-        var res = newsBox.values.toString();
-
-        print(" a");
-        print(res);
+        print(newsEntities);
 
         return Right(newsEntities);
       } else {
