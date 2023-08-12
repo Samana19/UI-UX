@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:the_daily_digest/core/common/color/colors.dart';
 
 class BookmarkPage extends StatelessWidget {
   final List<NewsArticle> bookmarks = [
     NewsArticle(
-      title: 'Article 1',
-      description: 'Description of Article 1',
-      imageUrl: 'https://example.com/article1.jpg',
+      title: 'News 1',
+      description: 'Category: General',
+      imageUrl:
+          'https://github.com/Samana19/https---github.com-SoftwaricaCollege-final-assignment-Samana19/blob/internet-connectivity/assets/images/18144590.jpg',
     ),
-    NewsArticle(
-      title: 'Article 2',
-      description: 'Description of Article 2',
-      imageUrl: 'https://example.com/article2.jpg',
-    ),
-    NewsArticle(
-      title: 'Article 3',
-      description: 'Description of Article 3',
-      imageUrl: 'https://example.com/article3.jpg',
-    ),
+    // f
   ];
 
   @override
@@ -30,7 +23,7 @@ class BookmarkPage extends StatelessWidget {
             fontSize: 18,
           ),
         ),
-        backgroundColor: Colors.blue,
+        backgroundColor: darkBlueText,
       ),
       body: ListView.builder(
         itemCount: bookmarks.length,

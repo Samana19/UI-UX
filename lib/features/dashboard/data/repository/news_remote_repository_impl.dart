@@ -1,4 +1,3 @@
-
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:the_daily_digest/core/failure/failure.dart';
@@ -18,8 +17,7 @@ class NewsRemoteRepoImpl implements INewsRepository {
   final NewsRemoteDataSource newsRemoteDataSource;
   final NewsLocalDataSource newsLocalDataSource;
   NewsRemoteRepoImpl(
-      {required this.newsRemoteDataSource,
-      required this.newsLocalDataSource});
+      {required this.newsRemoteDataSource, required this.newsLocalDataSource});
   @override
   Future<Either<Failure, List<NewsEntity>>> getAllNews({
     required String token,

@@ -61,16 +61,16 @@ class _HomePageState extends ConsumerState<HomePage> {
                       ),
                     ),
                     const SpaceVH(height: 20.0),
-                    Mainbutton(
-                      onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (builder) => const LoginPage()));
-                      },
-                      btnColor: darkBlueButton,
-                      text: 'Register Today',
-                    ),
+                    // Mainbutton(
+                    //   onPressed: () {
+                    //     // Navigator.push(
+                    //     //     context,
+                    //     //     MaterialPageRoute(
+                    //     //         builder: (builder) => const LoginPage()));
+                    //   },
+                    //   btnColor: darkBlueButton,
+                    //   text: 'Register Today',
+                    // ),
                     const SpaceVH(height: 20.0),
                   ],
                 ),

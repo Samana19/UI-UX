@@ -6,7 +6,6 @@ class NewsEntity extends Equatable {
   final String newsPoster;
   final String newsName;
   final String newsDescription;
-  List<CommentEntity> comments;
   final String category;
   final String userid;
   final DateTime createdAt;
@@ -16,7 +15,6 @@ class NewsEntity extends Equatable {
     required this.newsPoster,
     required this.newsName,
     required this.newsDescription,
-    required this.comments,
     required this.category,
     required this.userid,
     required this.createdAt,
@@ -27,7 +25,6 @@ class NewsEntity extends Equatable {
         newsPoster: json["newsPoster"],
         newsName: json["newsName"],
         newsDescription: json["newsDescription"],
-        comments: json["comments"],
         category: json["category"],
         userid: json["userid"],
         createdAt: json["createdAt"],
@@ -38,7 +35,6 @@ class NewsEntity extends Equatable {
         "newsPoster": newsPoster,
         "newsName": newsName,
         "newsDescription": newsDescription,
-        "comments": comments,
         "category": category,
         "userid": userid,
         "createdAt": createdAt,
@@ -50,7 +46,6 @@ class NewsEntity extends Equatable {
       newsPoster: map['newsPoster'] as String,
       newsName: map['newsName'] as String,
       newsDescription: map['newsDescription'] as String,
-      comments: map['comments'] as List<CommentEntity>,
       category: map['category'] as String,
       userid: map['userid'] as String,
       createdAt: map['createdAt'] as DateTime,
@@ -59,7 +54,7 @@ class NewsEntity extends Equatable {
 
   @override
   String toString() {
-    return 'NewsEntity(newsid: $newsid, newsPoster: $newsPoster, newsName: $newsName, newsDescription: $newsDescription, comments: $comments, category: $category, userid: $userid, createdAt: $createdAt)';
+    return 'NewsEntity(newsid: $newsid, newsPoster: $newsPoster, newsName: $newsName, newsDescription: $newsDescription, category: $category, userid: $userid, createdAt: $createdAt)';
   }
 
   @override
@@ -68,7 +63,6 @@ class NewsEntity extends Equatable {
         newsPoster,
         newsName,
         newsDescription,
-        comments,
         category,
         userid,
         createdAt,

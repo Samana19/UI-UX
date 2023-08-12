@@ -17,7 +17,6 @@ class NewsApiModel extends Equatable {
   final String newsName;
   final String newsDescription;
   final String newsPoster;
-  final List<CommentEntity> comments;
   final String category;
   final String userid;
   final DateTime createdAt;
@@ -27,7 +26,6 @@ class NewsApiModel extends Equatable {
     required this.newsName,
     required this.newsDescription,
     required this.newsPoster,
-    required this.comments,
     required this.category,
     required this.userid,
     required this.createdAt,
@@ -38,7 +36,6 @@ class NewsApiModel extends Equatable {
         newsName = '',
         newsDescription = '',
         newsPoster = '',
-        comments = [],
         category = '',
         userid = '',
         createdAt = DateTime.now();
@@ -54,7 +51,6 @@ class NewsApiModel extends Equatable {
         newsName: newsName,
         newsDescription: newsDescription,
         newsPoster: newsPoster,
-        comments: comments,
         category: category,
         userid: userid,
         createdAt: createdAt,
@@ -66,7 +62,6 @@ class NewsApiModel extends Equatable {
         newsName: entity.newsName,
         newsDescription: entity.newsDescription,
         newsPoster: entity.newsPoster,
-        comments: entity.comments,
         category: entity.category,
         userid: entity.userid,
         createdAt: entity.createdAt,
@@ -74,11 +69,11 @@ class NewsApiModel extends Equatable {
 
   // Convert API List to Entity List
   List<NewsEntity> toEntityList(List<NewsApiModel> models) =>
-      models.map((model) => model.toEntity()).toList();
+      models.map((model) => toEntity()).toList();
 
   @override
   String toString() {
-    return 'NewsApiModel(newsid: $newsid, newsName: $newsName, newsDescription: $newsDescription, newsPoster: $newsPoster, comments: $comments, category: $category, userid: $userid, createdAt: $createdAt)';
+    return 'NewsApiModel(newsid: $newsid, newsName: $newsName, newsDescription: $newsDescription, newsPoster: $newsPoster,  category: $category, userid: $userid, createdAt: $createdAt)';
   }
 
   @override
@@ -87,7 +82,6 @@ class NewsApiModel extends Equatable {
         newsName,
         newsDescription,
         newsPoster,
-        comments,
         category,
         userid,
         createdAt,

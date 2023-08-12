@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -53,7 +54,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
                     image: DecorationImage(
-                      image: NetworkImage(
+                      image: CachedNetworkImageProvider(
                           "${ApiEndpoints.baseUrl}${newsItem.newsPoster}"),
                       fit: BoxFit.cover,
                     ),
@@ -72,7 +73,8 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
                   overflow: TextOverflow.ellipsis,
                 ),
                 onTap: () {
-                  // Handle the news item tap
+                  Navigator.of(context)
+                      .pushNamed('/newsdetails', arguments: newsItem.newsid);
                 },
               ),
             );

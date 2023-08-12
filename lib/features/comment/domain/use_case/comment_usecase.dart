@@ -35,19 +35,19 @@ class CommentUseCase {
     }
   }
 
-  // Future<Either<Failure, CommentEntity>> postComment(String newsid, String content) async {
-  //   String? token;
+  Future<Either<Failure, CommentEntity>> postComment(String newsid, String content) async {
+    String? token;
 
-  //   await userSharedPrefs.getUserToken().then((value) {
-  //     value.fold((l) => null, (r) => token = r);
-  //   });
+    await userSharedPrefs.getUserToken().then((value) {
+      value.fold((l) => null, (r) => token = r);
+    });
 
-  //   if (token != null) {
-  //     return await commentRepository.postComment(newsid: newsid, content: content, token: token!);
-  //   } else {
-  //     return Left(Failure(error: 'Token not available'));
-  //   }
-  // }
+    if (token != null) {
+      return await commentRepository.postComment(newsid: newsid, content: content, token: token!, userid: '');
+    } else {
+      return Left(Failure(error: 'Token not available'));
+    }
+  }
 
   // Future<Either<Failure, Unit>> deleteComment(String commentid) async {
   //   String? token;
