@@ -15,4 +15,10 @@ class ApiEndpoints {
 
   // ====================== News Routes ======================
   static const String getAllNews = "/api/news/";
+
+  // ====================== Comment Routes ======================
+  static const String getAllComments = "/api/comment/";
+  static const String postComment = "/api/comment/";
+  // static String getComments(String newsid) => "/api/comment/$newsid";
+  // static String deleteComment(String commentid) => "/api/comment/$commentid";
 }

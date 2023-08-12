@@ -1,19 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:the_daily_digest/features/splash/presentation/viewmodel/splash_viewmodel.dart';
 import '../../../../core/common/color/colors.dart';
 import '../../../../core/common/spacing/space.dart';
 import '../../../../core/common/text style/text_style.dart';
 import '../../../../core/common/widget/main_button.dart';
-import '../../../../app.dart';
-import '../../../auth/presentation/view/login_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage extends ConsumerStatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  ConsumerState<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends ConsumerState<HomePage> {
+  @override
+  void initState() {
+    // Wait for 2 seconds and then navigate
+    Future.delayed(const Duration(seconds: 2), () {
+      ref.read(splashViewModelProvider.notifier).init(context);
+    });
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -53,10 +63,10 @@ class _HomePageState extends State<HomePage> {
                     const SpaceVH(height: 20.0),
                     Mainbutton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (builder) => const LoginPage()));
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (builder) => const LoginPage()));
                       },
                       btnColor: darkBlueButton,
                       text: 'Register Today',

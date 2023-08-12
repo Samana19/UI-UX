@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
 import 'package:the_daily_digest/config/constants/hive_table_constant.dart';
+import 'package:the_daily_digest/features/comment/domain/entity/comment_entity.dart';
 import 'package:the_daily_digest/features/dashboard/data/model/news_api_model.dart';
 import 'package:the_daily_digest/features/dashboard/domain/entity/news_entity.dart';
 import 'package:uuid/uuid.dart';
@@ -15,42 +16,66 @@ final newsHiveModelProvider = Provider(
 @HiveType(typeId: HiveTableConstant.newsTableId)
 class NewsHiveModel {
   @HiveField(0)
-  final String newsId;
+  final String newsid;
   @HiveField(1)
   final String newsPoster;
   @HiveField(2)
   final String newsName;
   @HiveField(3)
   final String newsDescription;
+  @HiveField(4)
+  List<CommentEntity> comments = [];
+  @HiveField(5)
+  final String category;
+  @HiveField(6)
+  final String userid;
+  @HiveField(7)
+  final DateTime createdAt;
 
   //empty constructor
   NewsHiveModel.empty()
-      : newsId = '',
+      : newsid = '',
         newsPoster = '',
         newsName = '',
-        newsDescription = '';
+        newsDescription = '',
+        comments = [],
+        category = '',
+        userid = '',
+        createdAt = DateTime.now();
 
   NewsHiveModel({
-    String? newsId,
+    String? newsid,
     required this.newsPoster,
     required this.newsName,
     required this.newsDescription,
-  }) : newsId = newsId ?? const Uuid().v4();
+    required this.comments,
+    required this.category,
+    required this.userid,
+    required this.createdAt,
+  }) : newsid = newsid ?? const Uuid().v4();
 
   // Convert hive Object to Entity
   NewsEntity toEntity() => NewsEntity(
-        newsId: newsId,
+        newsid: newsid,
         newsPoster: newsPoster,
         newsName: newsName,
         newsDescription: newsDescription,
+        comments: comments,
+        category: category,
+        userid: userid,
+        createdAt: createdAt,
       );
 
   // Convert Entity to hive Object
   NewsHiveModel toHiveModel(NewsEntity entity) => NewsHiveModel(
-        // newsId: entity.newsId ?? '',
+        // newsid: entity.newsid ?? '',
         newsPoster: entity.newsPoster,
         newsName: entity.newsName,
         newsDescription: entity.newsDescription,
+        comments: entity.comments,
+        category: entity.category,
+        userid: entity.userid,
+        createdAt: entity.createdAt,
       );
 
   // Convert hive List to Entity List
@@ -64,12 +89,16 @@ class NewsHiveModel {
               newsPoster: apiModel.newsPoster,
               newsName: apiModel.newsName,
               newsDescription: apiModel.newsDescription,
+              comments: apiModel.comments,
+              category: apiModel.category,
+              userid: apiModel.userid,
+              createdAt: apiModel.createdAt,
             ))
         .toList();
   }
 
   @override
   String toString() {
-    return 'NewsHiveModel(newsId: $newsId, newsPoster: $newsPoster, newsName: $newsName, newsDescription: $newsDescription)';
+    return 'NewsHiveModel(newsid: $newsid, newsPoster: $newsPoster, newsName: $newsName, newsDescription: $newsDescription, comments: $comments, category: $category, userid: $userid, createdAt: $createdAt)';
   }
 }

@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:the_daily_digest/features/comment/domain/entity/comment_entity.dart';
 import 'package:the_daily_digest/features/dashboard/domain/entity/news_entity.dart';
 
 part 'news_api_model.g.dart';
@@ -12,22 +13,35 @@ final newsApiModelProvider = Provider<NewsApiModel>(
 @JsonSerializable()
 class NewsApiModel extends Equatable {
   @JsonKey(name: '_id')
-  final String? newsId;
+  final String? newsid;
   final String newsName;
   final String newsDescription;
   final String newsPoster;
+  final List<CommentEntity> comments;
+  final String category;
+  final String userid;
+  final DateTime createdAt;
 
-  const NewsApiModel({
-    this.newsId,
+  NewsApiModel({
+    this.newsid,
     required this.newsName,
     required this.newsDescription,
     required this.newsPoster,
+    required this.comments,
+    required this.category,
+    required this.userid,
+    required this.createdAt,
   });
+
   NewsApiModel.empty()
-      : newsId = '',
+      : newsid = '',
         newsName = '',
         newsDescription = '',
-        newsPoster = '';
+        newsPoster = '',
+        comments = [],
+        category = '',
+        userid = '',
+        createdAt = DateTime.now();
 
   Map<String, dynamic> toJson() => _$NewsApiModelToJson(this);
 
@@ -36,18 +50,26 @@ class NewsApiModel extends Equatable {
 
   // Convert API Object to Entity
   NewsEntity toEntity() => NewsEntity(
-        newsId: newsId,
+        newsid: newsid,
         newsName: newsName,
         newsDescription: newsDescription,
         newsPoster: newsPoster,
+        comments: comments,
+        category: category,
+        userid: userid,
+        createdAt: createdAt,
       );
 
   // Convert Entity to API Object
   NewsApiModel fromEntity(NewsEntity entity) => NewsApiModel(
-        newsId: entity.newsId ?? "",
+        newsid: entity.newsid ?? "",
         newsName: entity.newsName,
         newsDescription: entity.newsDescription,
         newsPoster: entity.newsPoster,
+        comments: entity.comments,
+        category: entity.category,
+        userid: entity.userid,
+        createdAt: entity.createdAt,
       );
 
   // Convert API List to Entity List
@@ -55,10 +77,19 @@ class NewsApiModel extends Equatable {
       models.map((model) => model.toEntity()).toList();
 
   @override
+  String toString() {
+    return 'NewsApiModel(newsid: $newsid, newsName: $newsName, newsDescription: $newsDescription, newsPoster: $newsPoster, comments: $comments, category: $category, userid: $userid, createdAt: $createdAt)';
+  }
+
+  @override
   List<Object?> get props => [
-        newsId,
+        newsid,
         newsName,
         newsDescription,
         newsPoster,
+        comments,
+        category,
+        userid,
+        createdAt,
       ];
 }
