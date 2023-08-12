@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:all_sensors/all_sensors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +18,28 @@ class DashboardPage extends ConsumerStatefulWidget {
   ConsumerState<ConsumerStatefulWidget> createState() => _DashboardPageState();
 }
 
+
 class _DashboardPageState extends ConsumerState<DashboardPage> {
+  final List<StreamSubscription<dynamic>> _streamSubscription =
+      <StreamSubscription<dynamic>>[];
+
+  @override
+  void dispose(){
+    for (final subscription in _streamSubscription) {
+      subscription.cancel();
+    }
+
+    super.dispose();
+  }
+
+  void initState() {
+    super.initState();
+    _streamSubscription.add(gyroscopeEvents!.listen((GyroscopeEvent event) {
+      if (event.x < -3 || event.x > 3) {
+        SystemNavigator.pop();
+      }
+    }));
+  }
   @override
   Widget build(BuildContext context) {
     final newsState = ref.watch(newsViewModelProvider);
@@ -108,27 +132,6 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
 
         drawer: const SideBarDrawer(),
 
-        // drawer: SizedBox(
-        //   width: screenheight * 0.5,
-        //   child: Drawer(
-        //     child: SizedBox(
-        //         height: 100,
-        //         child: ListView(
-        //           padding: EdgeInsets.zero,
-        //           children: const [
-        //             DrawerHeader(
-        //               decoration: BoxDecoration(
-        //                 image: DecorationImage(
-        //                   image: AssetImage('assets/images/logo.png'),
-        //                   fit: BoxFit.cover,
-        //                 ),
-        //               ),
-        //               child: Text(''),
-        //             ),
-        //           ],
-        //         )),
-        //   ),
-        // ),
         body: SingleChildScrollView(
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -247,7 +250,6 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
               },
               child: _buildNewsWidget(),
             ),
-            // Text("data:     ${newsState.news.map((e) => {Text(e.newsName)})}"),
           ]),
         ),
       ),
