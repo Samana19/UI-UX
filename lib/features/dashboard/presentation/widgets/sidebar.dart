@@ -116,8 +116,7 @@ class _SideBarDrawerState extends State<SideBarDrawer> {
                 leading: const Icon(Icons.logout),
                 title: const Text('Logout'),
                 onTap: () {
-                  // updateCategory('Coming Soon');
-                  Navigator.pop(context);
+                  Navigator.pushNamed(context, '/login');
                 },
               ),
             ],
