@@ -29,8 +29,9 @@ class SplashViewModel extends StateNotifier<void> {
           // We will not do navigation like this,
           // we will use mixin and navigator class for this
           Navigator.popAndPushNamed(context, AppRoute.loginRoute);
-        } else {
-          Navigator.popAndPushNamed(context, AppRoute.bottomnavRoute);
+
+          // } else {
+          //   Navigator.popAndPushNamed(context, AppRoute.bottomnavRoute);
         }
       } else {
         Navigator.popAndPushNamed(context, AppRoute.loginRoute);

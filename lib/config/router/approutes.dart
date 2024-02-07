@@ -10,7 +10,7 @@ class AppRoute {
   static String loginRoute = '/login';
   static String signupRoute = '/signup';
   static String dashRoute = '/home';
-  static String bottomnavRoute = '/bottomnav';
+  // static String bottomnavRoute = '/bottomnav';
 
   static getAppRoutes() {
     return {
@@ -18,7 +18,7 @@ class AppRoute {
       loginRoute: (context) => const LoginPage(),
       signupRoute: (context) => const SignUpPage(),
       dashRoute: (context) => const DashboardPage(),
-      bottomnavRoute: (context) => const BottomNavBar(),
+      // bottomnavRoute: (context) => const BottomNavBar(),
     };
   }
 }

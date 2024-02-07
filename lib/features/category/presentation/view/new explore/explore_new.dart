@@ -5,8 +5,8 @@ import 'package:the_daily_digest/features/category/presentation/view/custom%20wi
 import 'package:the_daily_digest/features/category/presentation/view/custom widgets/custom_bottom_navbar.dart';
 import 'package:the_daily_digest/features/dashboard/presentation/widgets/downmenu.dart';
 
-class HealthScreen extends StatelessWidget {
-  const HealthScreen({Key? key}) : super(key: key);
+class ExploreScreen extends StatelessWidget {
+  const ExploreScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class HealthScreen extends StatelessWidget {
         preferredSize:
             Size.fromHeight(kToolbarHeight), // Remove space from appbar
         child: CustomAppBar(
-          title: Text('Health '),
+          title: Text('Explore '),
           onBackButtonPressed: () {
             Navigator.pop(context);
           },
@@ -28,10 +28,21 @@ class HealthScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                child: Text(
+                  'Popular Topics',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
               Expanded(
                 child: ListView.builder(
                   scrollDirection: Axis.vertical,
-                  itemCount: 2,
+                  itemCount: 3,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {

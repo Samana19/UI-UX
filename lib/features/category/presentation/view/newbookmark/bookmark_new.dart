@@ -5,8 +5,8 @@ import 'package:the_daily_digest/features/category/presentation/view/custom%20wi
 import 'package:the_daily_digest/features/category/presentation/view/custom widgets/custom_bottom_navbar.dart';
 import 'package:the_daily_digest/features/dashboard/presentation/widgets/downmenu.dart';
 
-class HealthScreen extends StatelessWidget {
-  const HealthScreen({Key? key}) : super(key: key);
+class BookmarkScreen extends StatelessWidget {
+  const BookmarkScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class HealthScreen extends StatelessWidget {
         preferredSize:
             Size.fromHeight(kToolbarHeight), // Remove space from appbar
         child: CustomAppBar(
-          title: Text('Health '),
+          title: Text('Bookmark'),
           onBackButtonPressed: () {
             Navigator.pop(context);
           },
@@ -23,15 +23,56 @@ class HealthScreen extends StatelessWidget {
       ),
       body: Container(
         // Adjust margin to remove space from top
-
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 45.0,
+                      width: 360.0,
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      decoration: BoxDecoration(
+                        color: white,
+                        border: Border.all(color: darkBlueText),
+                        boxShadow: [
+                          BoxShadow(
+                            color: darkBlueText.withOpacity(0.15),
+                            blurRadius: 10,
+                            offset: const Offset(0, 0),
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Row(
+                        children: [
+                          const SizedBox(
+                            height: 45,
+                            width: 310,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: 'Search',
+                              ),
+                            ),
+                          ),
+                          Image.asset(
+                            'assets/icons/search.png',
+                            height: 25,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               Expanded(
                 child: ListView.builder(
                   scrollDirection: Axis.vertical,
-                  itemCount: 2,
+                  itemCount: 1,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
